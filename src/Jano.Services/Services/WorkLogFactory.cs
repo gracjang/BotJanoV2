@@ -1,14 +1,18 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Jano.Domain.Models;
-using Jano.Services.Services.Interfaces;
+using Jano.Infrastructures.Models;
+using Jano.Infrastructures.Services.Interfaces;
 
-namespace Jano.Services
+namespace Jano.Infrastructures.Services
 {
   public class WorkLogFactory : IWorkLogFactory
   {
-    public WorkLog Create(string ticket, string username, int duration, string attrValue, string comment = null )
+    public IEnumerable<WorkLog> Create(IEnumerable<WorkLogDto> workLogsDto)
     {
-      return WorkLog.Create(ticket, username, duration, comment, WorkLogAttribute.Create(attrValue));
+      return workLogsDto.
+        Select(workLogDto => WorkLog.Create(workLogDto.Ticket, workLogDto.Username, workLogDto.Duration, workLogDto.Comment, 
+            WorkLogAttribute.Create(workLogDto.AttrValue)));
     }
   }
 }

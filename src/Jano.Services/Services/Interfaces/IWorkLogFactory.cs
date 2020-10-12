@@ -1,9 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using Jano.Domain.Models;
+using Jano.Infrastructures.Models;
 
-namespace Jano.Services.Services.Interfaces
+namespace Jano.Infrastructures.Services.Interfaces
 {
   public interface IWorkLogFactory
   {
-    WorkLog Create(string ticket, string username, int duration, string attrValue, string comment = null);
+    IEnumerable<WorkLog> Create(IEnumerable<WorkLogDto> workLogsDto);
   }
 }

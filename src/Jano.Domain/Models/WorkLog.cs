@@ -14,7 +14,7 @@ namespace Jano.Domain.Models
 
     public string AuthorUserKey { get; protected set; }
 
-    public int? TimeSpent { get; protected set; }
+    public int TimeSpent { get; protected set; }
 
     public string Comment { get; protected set; }
 
@@ -25,7 +25,7 @@ namespace Jano.Domain.Models
     }
 
     protected WorkLog(
-      string issueKey, string authorUserKey, int? timeSpent, string comment, WorkLogAttribute workLogAttribute)
+      string issueKey, string authorUserKey, int timeSpent, string comment, WorkLogAttribute workLogAttribute)
     {
       SetIssueKey(issueKey);
       WorkStart = DateTime.Today.AddHours(9).ToString("yy-MM-dd");
@@ -71,7 +71,7 @@ namespace Jano.Domain.Models
     }
 
     public static WorkLog Create(
-      string issueKey, string authorUserKey, int? timeSpent, string comment, WorkLogAttribute workLogAttribute) 
+      string issueKey, string authorUserKey, int timeSpent, string comment, WorkLogAttribute workLogAttribute) 
         => new WorkLog(issueKey, authorUserKey, timeSpent, comment, workLogAttribute);
   }
 }

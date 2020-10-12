@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Jano.Services;
-using Jano.Services.Services.Interfaces;
+using Jano.Infrastructures.Services;
+using Jano.Infrastructures.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Jano.API
 {
@@ -29,6 +22,7 @@ namespace Jano.API
         {
             services.AddControllers();
             services.AddScoped<IWorkLogFactory, WorkLogFactory>();
+            services.AddScoped<IWorkLogService, WorkLogService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
