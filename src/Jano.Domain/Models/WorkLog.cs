@@ -110,7 +110,7 @@ namespace Jano.Domain.Models
       _workLogAttributes.Add(workLogAttribute);
     }
 
-    public WorkLog Create(
+    public static WorkLog Create(
       string issueKey, string workStart, string authorUserKey, int? timeSpent, string comment, WorkLogAttribute workLogAttribute) 
         => new WorkLog(issueKey, workStart, authorUserKey, timeSpent, comment, workLogAttribute);
   }
