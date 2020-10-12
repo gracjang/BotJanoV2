@@ -25,13 +25,13 @@ namespace Jano.Domain.Models
     }
 
     protected WorkLog(
-      string issueKey, string workStart, string authorUserKey, int? timeSpent, string comment, WorkLogAttribute workLogAttribute)
+      string issueKey, string authorUserKey, int? timeSpent, string comment, WorkLogAttribute workLogAttribute)
     {
       SetIssueKey(issueKey);
-      SetWorkStart(workStart);
+      WorkStart = DateTime.Today.AddHours(9).ToString("yy-MM-dd");
       SetAuthorUserKey(authorUserKey);
-      SetTimeSpent(timeSpent);
-      SetComment(comment);
+      TimeSpent = timeSpent * Consts.SECONDS_TICK;
+      Comment = comment;
       AddWorklogAttribute(workLogAttribute);
     }
 
@@ -50,21 +50,6 @@ namespace Jano.Domain.Models
       IssueKey = issueKey;
     }
 
-    public void SetWorkStart(string workStart)
-    {
-      if (string.IsNullOrEmpty(workStart))
-      {
-        throw new DomainException(ErrorCode.InvalidWorklog, "WorkStart can't be empty");
-      }
-
-      if (WorkStart == workStart)
-      {
-        return;
-      }
-
-      WorkStart = workStart;
-    }
-
     public void SetAuthorUserKey(string authorUserKey)
     {
       if (string.IsNullOrEmpty(authorUserKey))
@@ -80,38 +65,13 @@ namespace Jano.Domain.Models
       AuthorUserKey = authorUserKey;
     }
 
-    public void SetTimeSpent(int? timeSpent)
-    {
-      if (TimeSpent == timeSpent)
-      {
-        return;
-      }
-
-      TimeSpent = timeSpent;
-    }
-
-    public void SetComment(string comment)
-    {
-      if (string.IsNullOrEmpty(comment))
-      {
-        throw new DomainException(ErrorCode.InvalidWorklog, "Comment can't be empty");
-      }
-
-      if (Comment == comment)
-      {
-        return;
-      }
-
-      Comment = comment;
-    }
-
     public void AddWorklogAttribute(WorkLogAttribute workLogAttribute)
     {
       _workLogAttributes.Add(workLogAttribute);
     }
 
     public static WorkLog Create(
-      string issueKey, string workStart, string authorUserKey, int? timeSpent, string comment, WorkLogAttribute workLogAttribute) 
-        => new WorkLog(issueKey, workStart, authorUserKey, timeSpent, comment, workLogAttribute);
+      string issueKey, string authorUserKey, int? timeSpent, string comment, WorkLogAttribute workLogAttribute) 
+        => new WorkLog(issueKey, authorUserKey, timeSpent, comment, workLogAttribute);
   }
 }
