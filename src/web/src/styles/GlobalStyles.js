@@ -13,9 +13,9 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Piedra', cursive;
     font-size: 1.2rem;
-     background: linear-gradient(to top, #ffefba, #ffffff);
+     background: linear-gradient(to top, #ece9e6, #ffffff);
      background-repeat: no-repeat;
      background-size: cover;
   }
