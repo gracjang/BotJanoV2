@@ -2,7 +2,7 @@ import React from 'react'
 import Worklog from "./Worklog";
 import Summary from "./Summary";
 import styled from "styled-components";
-import Header from './../components/atoms/Header/Header';
+import Header from '../components/atoms/Header';
 
 const StyledWrapper = styled.div`
   display: grid;
