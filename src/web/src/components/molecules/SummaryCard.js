@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Input from "../atoms/Input";
-import TextArea from "../atoms/TextArea";
-import Button from "../atoms/Button";
 import Paragraph from './../atoms/Paragraph';
 
 const StyledWrapper = styled.div`

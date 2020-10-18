@@ -20,7 +20,7 @@ const StyledInner = styled.div`
   margin-top: 20px;
 `;
 
-function timeConvert(n) {
+const timeConvert = (n) => {
   let num = n;
   let hours = num / 60;
   let rhours = Math.floor(hours);
