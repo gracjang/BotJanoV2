@@ -4,6 +4,8 @@ const TextArea = styled.textarea`
   font-family: inherit;
   height: 48px;
   max-width: 80%;
+  min-width: 80%;
+  max-height: 100px;
   font-size: 16px;
   border: 0;
   margin-top: 50px;

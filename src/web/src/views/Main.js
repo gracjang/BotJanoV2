@@ -10,16 +10,38 @@ const StyledWrapper = styled.div`
   margin-top: 50px;
 `;
 
-const Main = () => {
-  return (
-    <>
-      <Header>Bot Jano V2</Header>
-      <StyledWrapper>
-        <Worklog />
-        <Summary />
-      </StyledWrapper>
-    </>
-  );
+class Main extends React.Component {
+  state = {
+    items: []
+  }
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newItem = {
+      ticket: e.target[0].value,
+      time: e.target[1].value,
+      comment: e.target[2].value,
+    };
+
+    this.setState((prevState) => ({
+      items: [...prevState.items, newItem],
+    }));
+
+    e.target.reset();
+  }
+
+  render() {
+    return (
+      <>
+        <Header>Bot Jano V2</Header>
+        <StyledWrapper>
+          <Worklog fnSubmit={this.handleSubmit} />
+          <Summary items={this.state.items}/>
+        </StyledWrapper>
+      </>
+    );
+  }
+  
 }
 
 export default Main

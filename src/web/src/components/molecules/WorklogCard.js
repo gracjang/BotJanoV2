@@ -17,14 +17,16 @@ const StyledWrapper = styled.div`
   position: relative;
 `;
 
-const WorklogCard = ( { type } ) => {
+const WorklogCard = ( { type, fnSubmit } ) => {
   return (
     <StyledWrapper>
-      <Input type="text" placeholder="Ticket" />
-      <Input type="number" placeholder="Time in minutes" />
-      {type === "Meeting" && <TextArea placeholder="Type some comment" /> }
+      <form onSubmit={(e) => fnSubmit(e)}>
+        <Input type="text" placeholder="Ticket" />
+        <Input type="number" placeholder="Time in minutes" />
+        {type === "Meeting" && <TextArea placeholder="Type some comment" />}
 
-      <Button>Dodaj</Button>
+        <Button>Dodaj</Button>
+      </form>
     </StyledWrapper>
   );
 }

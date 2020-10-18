@@ -19,20 +19,37 @@ const StyledInner = styled.div`
   align-items: center;
   margin-top: 20px;
 `;
-const Summary = () => {
+
+function timeConvert(n) {
+  let num = n;
+  let hours = num / 60;
+  let rhours = Math.floor(hours);
+  let minutes = (hours - rhours) * 60;
+  let rminutes = Math.round(minutes);
+  return ( rhours + " hour(s) and " + rminutes + " minute(s)."
+  );
+}
+
+const sumCost = (data) =>
+  data.reduce(
+    (cost, entry) => cost + (parseFloat(entry.time) || 0),
+    0
+  );
+
+const Summary = ({ items }) => {
   return (
     <div>
       <Header secondary>Summary</Header>
       <StyledWrapper>
-        <SummaryCard />
-        <SummaryCard />
-        <SummaryCard />
-        <SummaryCard />
+        {items.map((item) => (
+          <SummaryCard key={item.ticket} {...item} />
+        ))}
       </StyledWrapper>
-      <StyledInner>
-        <Paragraph>Total: x / 7 hours</Paragraph>
+       {items.length > 0 &&
+        <StyledInner>
+        <Paragraph>Total: {timeConvert(sumCost(items))}</Paragraph>
         <Button sender>Send</Button>
-      </StyledInner>
+       </StyledInner> }
     </div>
   );
 }

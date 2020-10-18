@@ -18,12 +18,12 @@ const StyledWrapper = styled.div`
   align-items: center;
 `;
 
-const SummaryCard = () => {
+const SummaryCard = ( { ticket, time, comment } ) => {
   return (
     <StyledWrapper>
-      <Paragraph>KRD-1200</Paragraph>
-      <Paragraph>40 minutes</Paragraph>
-      <Paragraph>Retro</Paragraph>
+      <Paragraph>{ticket}</Paragraph>
+      <Paragraph>{time} minutes</Paragraph>
+      <Paragraph>{comment}</Paragraph>
     </StyledWrapper>
   );
 };

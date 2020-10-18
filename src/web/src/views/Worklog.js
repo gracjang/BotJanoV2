@@ -44,7 +44,7 @@ class Worklog extends React.Component {
           />
         </StyledHeading>
         <StyledCard>
-          <WorklogCard type={this.state.value} />
+          <WorklogCard type={this.state.value} fnSubmit={this.props.fnSubmit} />
         </StyledCard>
       </div>
     );
