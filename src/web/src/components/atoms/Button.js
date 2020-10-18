@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const Button = styled.button`
   padding: 7px;
@@ -16,8 +16,14 @@ const Button = styled.button`
   bottom: 20px;
 
   &:hover {
-    color:black;
+    color: black;
   }
+
+  ${({ sender }) =>
+    sender &&
+    css`
+      position: unset;
+    `};
 `;
 
 export default Button;

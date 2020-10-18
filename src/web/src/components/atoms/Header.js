@@ -10,7 +10,7 @@ const Header = styled.h1`
   background-clip: text;
   text-align: center;
   margin: 0;
-  
+  margin-top: 20px;
 
   ${({ secondary }) =>
     secondary &&

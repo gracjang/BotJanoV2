@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
-import Input from './../atoms/Input';
-import TextArea from './../atoms/TextArea';
+import Input from '../atoms/Input';
+import TextArea from '../atoms/TextArea';
 import Button from '../atoms/Button';
 
 const StyledWrapper = styled.div`
@@ -17,15 +17,16 @@ const StyledWrapper = styled.div`
   position: relative;
 `;
 
-const Card = () => {
+const WorklogCard = ( { type } ) => {
   return (
     <StyledWrapper>
       <Input type="text" placeholder="Ticket" />
       <Input type="number" placeholder="Time in minutes" />
-      <TextArea placeholder="Type some comment" />
+      {type === "Meeting" && <TextArea placeholder="Type some comment" /> }
+
       <Button>Dodaj</Button>
     </StyledWrapper>
   );
 }
 
-export default Card
+export default WorklogCard;

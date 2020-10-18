@@ -11,19 +11,18 @@ const StyledSelect = styled.select`
   color: blueviolet;
   background-color: lightgrey;
   border-radius: 10px;
+  font-weight: 600;
 `;
 
-const WorklogHeading = () => {
+const WorklogHeading = ( { types, fnHandleSelectChange, valueType } ) => {
   return (
     <>
       <Paragraph>Rodzaj pracy:</Paragraph>
-      <StyledSelect>
-        <option value="Spotkanie">Spotkanie</option>
-        <option selected value="Daily">
-          Daily
-        </option>
-        <option value="Programowanie">Programowanie</option>
-        <option value="Analiza">Analiza</option>
+      <StyledSelect onChange={fnHandleSelectChange} value={valueType}>
+        <option value={types.meeting}>{types.meeting}</option>
+        <option value={types.daily}>{types.daily}</option>
+        <option value={types.programming}>{types.programming}</option>
+        <option value={types.analysis}>{types.analysis}</option>
       </StyledSelect>
     </>
   );
