@@ -22,7 +22,7 @@ namespace Jano.Infrastructures.Services
 
     public void SendRequest(IEnumerable<WorkLogDto> workLogsDto)
     {
-      var workLogs = _workLogFactory.Create(workLogsDto);
+      var workLogs = _workLogFactory.Create(workLogsDto); 
 
       var client = new RestClient(JiraUrl);
       client.UseNewtonsoftJson();
