@@ -24,18 +24,18 @@ namespace Jano.Domain.Models
       set => _workLogAttributes = new HashSet<WorkLogAttribute>(value);
     }
 
-    protected WorkLog(
+    private WorkLog(
       string issueKey, string authorUserKey, int timeSpent, string comment, WorkLogAttribute workLogAttribute)
     {
       SetIssueKey(issueKey);
       WorkStart = DateTime.Today.AddHours(9).ToString("yy-MM-dd");
       SetAuthorUserKey(authorUserKey);
-      TimeSpent = timeSpent * Consts.SECONDS_TICK;
+      TimeSpent = timeSpent * Consts.SecondsTick;
       Comment = comment;
       AddWorklogAttribute(workLogAttribute);
     }
 
-    public void SetIssueKey(string issueKey)
+    private void SetIssueKey(string issueKey)
     {
       if (string.IsNullOrEmpty(issueKey))
       {
@@ -50,7 +50,7 @@ namespace Jano.Domain.Models
       IssueKey = issueKey;
     }
 
-    public void SetAuthorUserKey(string authorUserKey)
+    private void SetAuthorUserKey(string authorUserKey)
     {
       if (string.IsNullOrEmpty(authorUserKey))
       {
@@ -65,7 +65,7 @@ namespace Jano.Domain.Models
       AuthorUserKey = authorUserKey;
     }
 
-    public void AddWorklogAttribute(WorkLogAttribute workLogAttribute)
+    private void AddWorklogAttribute(WorkLogAttribute workLogAttribute)
     {
       _workLogAttributes.Add(workLogAttribute);
     }

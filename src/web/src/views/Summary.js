@@ -39,7 +39,8 @@ const sumCost = (data) =>
 const Summary = ({ items }) => {
   return (
     <div>
-      <Header secondary>Summary</Header>
+      {items.length > 0 &&
+      <Header secondary>Summary</Header>}
       <StyledWrapper>
         {items.map((item) => (
           <SummaryCard key={item.ticket} {...item} />

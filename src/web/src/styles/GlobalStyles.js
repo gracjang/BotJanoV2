@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 62,5%;
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
   }
   body {
     font-family: 'Piedra', cursive;
@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
      background: linear-gradient(to top, #ece9e6, #ffffff);
      background-repeat: no-repeat;
      background-size: cover;
+     
   }
 `;
 

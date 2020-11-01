@@ -5,13 +5,13 @@ namespace Jano.Domain.Models
 {
   public class WorkLogAttribute
   {
-    protected int AttrTypeId => Consts.WORK_TYPE;
+    protected int AttrTypeId => Consts.WorkType;
 
     public string AttrValue { get; protected set; }
 
-    protected WorkLogAttribute(string AttrValue)
+    protected WorkLogAttribute(string attrValue)
     {
-      SetAttrValue(AttrValue);
+      SetAttrValue(attrValue);
     }
 
     private void SetAttrValue(string attrValue)

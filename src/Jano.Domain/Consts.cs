@@ -4,7 +4,7 @@ namespace Jano.Domain
 {
     public static class Consts
     {
-      public const int WORK_TYPE = 8;
-      public const int SECONDS_TICK = 60;
+      public const int WorkType = 8;
+      public const int SecondsTick = 60;
   }
 }
