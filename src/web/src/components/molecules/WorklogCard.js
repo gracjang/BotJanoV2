@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
 const WorklogCard = ( { type, fnSubmit } ) => {
   return (
     <StyledWrapper>
-      <form onSubmit={(e) => fnSubmit(e)}>
+      <form onSubmit={(e, type) => fnSubmit(e, type)}>
         <Input type="text" placeholder="Ticket" />
         <Input type="number" placeholder="Time in minutes" />
         {type === "Meeting" && <TextArea placeholder="Type some comment" />}

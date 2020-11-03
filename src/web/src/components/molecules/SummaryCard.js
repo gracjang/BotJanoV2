@@ -15,12 +15,12 @@ const StyledWrapper = styled.div`
   align-items: center;
 `;
 
-const SummaryCard = ( { ticket, time, comment } ) => {
+const SummaryCard = ({ ticket, time, comment }) => {
   return (
     <StyledWrapper>
       <Paragraph>{ticket}</Paragraph>
       <Paragraph>{time} minutes</Paragraph>
-      <Paragraph>{comment}</Paragraph>
+      {comment == null && <Paragraph>{comment}</Paragraph>}
     </StyledWrapper>
   );
 };
