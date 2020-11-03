@@ -17,8 +17,8 @@ const StyledWrapper = styled.div`
   };
 class Main extends React.Component {
   state = {
-    items: []
-  }
+    items: [],
+  };
 
   handleSubmit = (e, type) => {
     e.preventDefault();
@@ -35,7 +35,11 @@ class Main extends React.Component {
     }));
 
     e.target.reset();
-  }
+  };
+
+  handleOnClick = (items) => {
+    console.log(items);
+  };
 
   render() {
     return (
@@ -43,12 +47,11 @@ class Main extends React.Component {
         <Header>Bot Jano V2</Header>
         <StyledWrapper>
           <Worklog fnSubmit={this.handleSubmit} />
-          <Summary items={this.state.items}/>
+          <Summary items={this.state.items} fnOnClick={this.handleOnClick} />
         </StyledWrapper>
       </>
     );
   }
-  
 }
 
 export default Main

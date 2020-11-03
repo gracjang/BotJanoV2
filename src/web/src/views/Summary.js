@@ -36,23 +36,25 @@ const sumCost = (data) =>
     0
   );
 
-const Summary = ({ items }) => {
+const Summary = ({ items, fnOnClick }) => {
   return (
     <div>
-      {items.length > 0 &&
-      <Header secondary>Summary</Header>}
+      {items.length > 0 && <Header secondary>Summary</Header>}
       <StyledWrapper>
         {items.map((item) => (
           <SummaryCard key={item.ticket} {...item} />
         ))}
       </StyledWrapper>
-       {items.length > 0 &&
+      {items.length > 0 && (
         <StyledInner>
-        <Paragraph>Total: {timeConvert(sumCost(items))}</Paragraph>
-        <Button sender>Send</Button>
-       </StyledInner> }
+          <Paragraph>Total: {timeConvert(sumCost(items))}</Paragraph>
+          <Button onClick={() => fnOnClick(items)} sender>
+            Send
+          </Button>
+        </StyledInner>
+      )}
     </div>
   );
-}
+};
 
 export default Summary
