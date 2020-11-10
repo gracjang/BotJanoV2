@@ -8,7 +8,6 @@ namespace Jano.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
     public class WorklogsController : Controller
     {
         private readonly IWorkLogService _workLogService;
@@ -18,15 +17,14 @@ namespace Jano.API.Controllers
             _workLogService = workLogService;
         }
 
-        [HttpGet]
-        public IActionResult AddWorkLog([FromBody] IEnumerable<WorkLogDto> workLogsDto)
+        [HttpPost]
+        public IActionResult AddWorkLog([FromBody] IEnumerable<WorkLogDtoV2> workLogsDto)
         {
-            _workLogService.SendRequest(workLogsDto);
+            //_workLogService.SendRequest(workLogsDto);
             return Ok();
         }
         
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Get() => Ok("Worklogs API");
     }
 }
